@@ -1,6 +1,6 @@
 # Wolf Howl Fix
 
-Fixes wolf howl loop bug. Under certain conditions, most noticeable on aurora nights, a wolf can loop and stutter its howl endlessly. 
+Fixes wolf howl loop bug. Under certain conditions, most noticeable on aurora nights, a wolf can loop and stutter its howl endlessly.
 
 ![A wolf's howl restarting over and over instead of finishing](BuggedHowl.gif)
 
@@ -28,7 +28,7 @@ Nothing is written to your save.
 
 ## ⚠️ Wolves will be more dangerous
 
-This will make aurora wolves much more dangerous than with the bug, which made wolves immediately abandon almost every stalk. With it fixed they will detect and stalk you from a greater distance than non-aurora wolves which is how the game always intended them to behave. 
+Aurora wolves already detect you from further away than normal wolves — but with the bug that made no difference, since they abandoned the stalk the instant they noticed you. With it fixed, that detection finally has consequence: they will close on you from distances they previously ignored, which is how the game always intended them to behave.
 
 Turn the fix off in Mod Settings if you would rather keep that.
 
