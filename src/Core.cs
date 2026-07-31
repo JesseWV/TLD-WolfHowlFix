@@ -23,7 +23,10 @@ public class Core : MelonMod
     {
         Instance = this;
         Settings.OnLoad();
-        LoggerInstance.Msg($"ready (enabled={Settings.Instance.EnableMod})");
+        // Silent unless the user has opted into logging. MelonLoader already announces
+        // the mod name and version at load, so this line is pure duplication otherwise.
+        if (Settings.Instance.Verbose)
+            LoggerInstance.Msg($"ready (enabled={Settings.Instance.EnableMod})");
     }
 
     public override void OnUpdate() => HowlWatch.Tick();

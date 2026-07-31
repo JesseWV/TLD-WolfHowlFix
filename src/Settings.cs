@@ -31,9 +31,9 @@ internal sealed class Settings : JsonModSettings
 
     [Section("Diagnostics")]
     [Name("Verbose logging")]
-    [Description("Writes a line to the MelonLoader log for every howl start, restart and " +
-                 "completion. Noisy, and costs an Animator query per wolf per frame — " +
-                 "only useful for checking the fix is working.")]
+    [Description("Writes to the MelonLoader log: startup, each wolf adjusted, and every howl " +
+                 "start, restart and completion. Off means the mod is completely silent. " +
+                 "Costs an Animator query per wolf per frame while on.")]
     public bool Verbose = false;
 
     private void ApplyVisibility()

@@ -248,8 +248,8 @@ internal static class HowlWatch
 
                 s.OriginalBreakRange = original;
                 s.Applied = true;
-                Log($"id={id} breakRange {original:0} -> {SafeBreakStalkingRange:0} " +
-                    $"(longest sense {longestSense:0})", force: !Settings.Instance.Verbose);
+                LogStatus($"id={id} breakRange {original:0} -> {SafeBreakStalkingRange:0} " +
+                          $"(longest sense {longestSense:0})");
             }
 
             if (wolf.m_BreakSlalkingRange < SafeBreakStalkingRange)
@@ -337,9 +337,17 @@ internal static class HowlWatch
         s.LastNt = 0f;
     }
 
-    private static void Log(string message, bool force = false)
+    /// <summary>Per-howl detail. Only when verbose logging is on.</summary>
+    private static void Log(string message)
     {
-        if (!force && !Settings.Instance.Verbose) return;
+        if (!Settings.Instance.Verbose) return;
         Core.Log.Msg($"{message}  [fps={Fps:0}]");
+    }
+
+    /// <summary>Occasional status lines, without the per-frame fps suffix.</summary>
+    private static void LogStatus(string message)
+    {
+        if (!Settings.Instance.Verbose) return;
+        Core.Log.Msg(message);
     }
 }
