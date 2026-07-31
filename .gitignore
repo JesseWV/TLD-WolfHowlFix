@@ -10,3 +10,6 @@ obj/
 .vs/
 *.user
 *.suo
+
+# Thumbnail cache from image tooling
+thumb_cache/
