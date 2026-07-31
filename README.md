@@ -22,13 +22,15 @@ Nothing is written to your save.
 
 ![The mod's settings page](WolfHowlFix-ModSettings.png)
 
-| Setting | Default | |
-|---|---|---|
-| **Enable fix** | on | Turn off to restore the unpatched behaviour. |
+| Setting        | Default |                                              |
+| -------------- | ------- | -------------------------------------------- |
+| **Enable fix** | on      | Turn off to restore the unpatched behaviour. |
 
-## ⚠️ Wolves will be more dangerous
+## ⚠️ Some wolves will be more dangerous!
 
-Aurora wolves already detect you from further away than normal wolves — but with the bug that made no difference, since they abandoned the stalk the instant they noticed you. With it fixed, that detection finally has consequence: they will close on you from distances they previously ignored, which is how the game always intended them to behave.
+All wolves during the aurora, including timberwolves, and all poisoned wolves would detect you but be unable to pursue from certain distances due to the bug.
+
+With the fix they will correctly close on you from distances they previously could not, which is how the game always intended them to behave.
 
 Turn the fix off in Mod Settings if you would rather keep that.
 

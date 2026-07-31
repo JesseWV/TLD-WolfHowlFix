@@ -34,7 +34,7 @@ A normal wolf can barely sense you past 100 m, so it is almost never "too far" w
 
 Grey wolves (the same animal as timberwolves) already have their break-stalking range raised to 200 and are unaffected — but **their aurora variant was left at 100**, so it is exposed like the rest. Every other variant kept the default 100 regardless of how far its senses were extended.
 
-**Five of the nine wolf variants are affected, not just aurora wolves.** Starving wolves show it too, in both their normal and aurora forms.
+**Five of the nine wolf variants are affected, not just aurora wolves.** Starving wolves show it too, in both their normal and aurora forms — and because nothing about the bug depends on the aurora, a plain starving wolf shows it in broad daylight. Its 125 m sense range reaches past its own 100 m break-stalking range, which is the only condition the bug needs.
 
 ## What the mod does
 
