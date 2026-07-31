@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <RootNamespace>WolfHowlFix</RootNamespace>
+    <AssemblyName>WolfHowlFix</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Platforms>AnyCPU;x64</Platforms>
+    <DebugType>none</DebugType>
+    <!-- Il2Cpp interop proxies trip a lot of these; they are not actionable here. -->
+    <NoWarn>$(NoWarn);CS0649;CS0169</NoWarn>
+  </PropertyGroup>
+
+  <!-- Il2Cpp reference assemblies + ModSettings via NuGet, so the project builds without a
+       local game install. ModSettings pulls in STBlade's 2.10.0 assemblies transitively; the
+       explicit reference below outranks it and provides the 2.55-era types we need. -->
+  <ItemGroup>
+    <PackageReference Include="Waltz.Modding.TLD.Il2CppAssemblies.Windows" Version="2.52.0" />
+    <PackageReference Include="STBlade.Modding.TLD.ModSettings" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="ModSettings" />
+  </ItemGroup>
+
+</Project>
