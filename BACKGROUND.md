@@ -23,16 +23,18 @@ The broken code path only runs while a stalking wolf is beyond its "break stalki
 | Aurora | 105 | 150 | 90 | 100 | **yes** |
 | Aurora (fluffy) | 105 | 150 | 90 | 100 | **yes** |
 | Starving | 90 | 125 | 60 | 100 | **yes** |
-| Grey, aurora | 90 | 120 | 120 | 100 | **yes** |
+| Starving (aurora) | 90 | 125 | 60 | 100 | **yes** |
+| Grey (aurora) | 90 | 120 | 120 | 100 | **yes** |
 | Grey / timberwolf | 90 | 120 | 120 | **200** | no |
 | Normal | 75 | 100 | 60 | 100 | no |
+| Normal (fluffy) | 75 | 100 | 60 | 100 | no |
 | Town | 40 | 50 | 30 | 100 | no |
 
 A normal wolf can barely sense you past 100 m, so it is almost never "too far" while stalking and never reaches the bad path. An aurora wolf senses you to 150 m and can see you to roughly 210 m, so it frequently stalks from beyond 100 m — and does.
 
-Grey wolves (the same animal as timberwolves) already have their break-stalking range raised to 200 and are unaffected — but **their aurora variant was left at 100**, so it is exposed like the rest.
+Grey wolves (the same animal as timberwolves) already have their break-stalking range raised to 200 and are unaffected — but **their aurora variant was left at 100**, so it is exposed like the rest. Every other variant kept the default 100 regardless of how far its senses were extended.
 
-**Four variants are affected, not just aurora wolves.** Starving wolves show it too.
+**Five of the nine wolf variants are affected, not just aurora wolves.** Starving wolves show it too, in both their normal and aurora forms.
 
 ## What the mod does
 

@@ -32,13 +32,15 @@ namespace WolfHowlFix;
 /// detection / smell / hearing vs break range):
 ///
 /// <code>
-///   aurora           105 / 150 / 90    vs 100   AFFECTED
-///   aurora_Fluffy    105 / 150 / 90    vs 100   AFFECTED
-///   Starving          90 / 125 / 60    vs 100   AFFECTED
-///   grey_aurora       90 / 120 / 120   vs 100   AFFECTED
-///   grey (timberwolf) 90 / 120 / 120   vs 200   correct
-///   normal            75 / 100 / 60    vs 100   correct
-///   town              40 /  50 / 30    vs 100   correct
+///   aurora            105 / 150 / 90    vs 100   AFFECTED
+///   aurora_Fluffy     105 / 150 / 90    vs 100   AFFECTED
+///   Starving           90 / 125 / 60    vs 100   AFFECTED
+///   Starving_Aurora    90 / 125 / 60    vs 100   AFFECTED
+///   grey_aurora        90 / 120 / 120   vs 100   AFFECTED
+///   grey (timberwolf)  90 / 120 / 120   vs 200   correct
+///   normal             75 / 100 / 60    vs 100   correct
+///   normal_Fluffy      75 / 100 / 60    vs 100   correct
+///   town               40 /  50 / 30    vs 100   correct
 /// </code>
 ///
 /// Note grey and timberwolf are the same animal — the prefab is WILDLIFE_Wolf_grey, the
