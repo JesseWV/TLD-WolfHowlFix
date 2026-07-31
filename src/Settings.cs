@@ -51,7 +51,7 @@ internal sealed class Settings : JsonModSettings
 
     internal static void OnLoad()
     {
-        Instance.AddToModSettings("WolfHowlFix");
+        Instance.AddToModSettings("Wolf Howl Fix");
         Instance.ApplyVisibility();   // hide the gate and the Diagnostics section up front
 
         // Write the file on load so ShowDiagnostics actually appears in it. ModSettings only

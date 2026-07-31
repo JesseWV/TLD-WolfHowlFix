@@ -4,6 +4,8 @@ Fixes wolf howls in **The Long Dark 2.55** that stutter — starting, cutting of
 
 Most noticeable on aurora nights, where a wolf can loop its howl endlessly.
 
+![A wolf's howl restarting over and over instead of finishing](BuggedHowl.gif)
+
 ## Requirements
 
 - The Long Dark **2.55**
@@ -18,7 +20,9 @@ Nothing is written to your save.
 
 ## Settings
 
-**Options → Mod Settings → WolfHowlFix**
+**Options → Mod Settings → Wolf Howl Fix**
+
+![The mod's settings page](WolfHowlFix-ModSettings.png)
 
 | Setting | Default | |
 |---|---|---|
