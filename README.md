@@ -1,8 +1,6 @@
-# WolfHowlFix
+# Wolf Howl Fix
 
-Fixes wolf howls in **The Long Dark 2.55** that stutter — starting, cutting off and restarting over and over instead of playing through.
-
-Most noticeable on aurora nights, where a wolf can loop its howl endlessly.
+Fixes wolf howl loop bug. Under certain conditions, most noticeable on aurora nights, a wolf can loop and stutter its howl endlessly. 
 
 ![A wolf's howl restarting over and over instead of finishing](BuggedHowl.gif)
 
@@ -30,7 +28,7 @@ Nothing is written to your save.
 
 ## ⚠️ Wolves will be more dangerous
 
-The bug made wolves abandon almost every stalk, so they rarely committed to a charge. With it fixed they hold the stalk and come in — which is how the game always intended them to behave, but it is harder than what you may be used to.
+This will make aurora wolves much more dangerous than with the bug, which made wolves immediately abandon almost every stalk. With it fixed they will detect and stalk you from a greater distance than non-aurora wolves which is how the game always intended them to behave. 
 
 Turn the fix off in Mod Settings if you would rather keep that.
 
