@@ -8,7 +8,7 @@ Fixes wolf howl loop bug. Under certain conditions, most noticeable on aurora ni
 
 - The Long Dark **2.55**
 - **MelonLoader 0.7.2**
-- **ModSettings**
+- **ModSettings** — optional, adds the in-game toggle. Without it the fix simply runs enabled.
 
 ## Install
 
@@ -18,7 +18,7 @@ Nothing is written to your save.
 
 ## Settings
 
-**Options → Mod Settings → Wolf Howl Fix**
+**Options → Mod Settings → Wolf Howl Fix** (requires ModSettings)
 
 ![The mod's settings page](WolfHowlFix-ModSettings.png)
 

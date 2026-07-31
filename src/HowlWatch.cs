@@ -151,7 +151,7 @@ internal static class HowlWatch
 
     internal static void Tick()
     {
-        bool verbose = Settings.Instance.Verbose;
+        bool verbose = Config.Verbose;
 
         bool scanDue = false;
         if (++_frame >= ScanIntervalFrames) { _frame = 0; scanDue = true; }
@@ -185,7 +185,7 @@ internal static class HowlWatch
             if (scanDue)
             {
                 Seen.Add(id);
-                if (Settings.Instance.EnableMod) ApplyFix(id, wolf, s);
+                if (Config.EnableMod) ApplyFix(id, wolf, s);
                 else RevertFix(wolf, s);
             }
 
@@ -342,14 +342,14 @@ internal static class HowlWatch
     /// <summary>Per-howl detail. Only when verbose logging is on.</summary>
     private static void Log(string message)
     {
-        if (!Settings.Instance.Verbose) return;
+        if (!Config.Verbose) return;
         Core.Log.Msg($"{message}  [fps={Fps:0}]");
     }
 
     /// <summary>Occasional status lines, without the per-frame fps suffix.</summary>
     private static void LogStatus(string message)
     {
-        if (!Settings.Instance.Verbose) return;
+        if (!Config.Verbose) return;
         Core.Log.Msg(message);
     }
 }

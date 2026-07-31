@@ -13,3 +13,6 @@ obj/
 
 # Thumbnail cache from image tooling
 thumb_cache/
+
+# Release announcement draft — not part of the release.
+discord-release-post.md
