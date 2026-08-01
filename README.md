@@ -32,9 +32,11 @@ Nothing is written to your save.
 
 Previously an animal that noticed you from too far away forgot about you instantly — that was the bug. Now it stays interested for the full 30 seconds the game intends, then gives up once.
 
-The broken timer is shared AI code reached by anything that stalks, so **bears are fixed too** — confirmed by testing. They do not howl, so it showed up as a bear repeatedly starting and abandoning a chase rather than as a stuttering howl. Timberwolves never stalk at all, so they were never affected.
+The broken timer is shared AI code reached by anything that stalks, so **bears and cougars are fixed too** — all confirmed by testing. They do not howl, so it showed up as an animal repeatedly starting and abandoning a chase rather than as a stuttering howl.
 
-⚠️ **Bears change the most.** A bear that used to lose interest instantly will now pursue you for the full 30 seconds. That is the intended behaviour, but it is a noticeable difference.
+Timberwolves and moose were never affected: neither ever enters the stalking state.
+
+⚠️ **Bears and cougars change the most.** One that used to lose interest instantly will now pursue you for the full 30 seconds. That is the intended behaviour, but it is a noticeable difference.
 
 Nothing is more aggressive, faster, or better at finding you. No senses, ranges or behaviour are retuned; only the broken timer is repaired.
 
