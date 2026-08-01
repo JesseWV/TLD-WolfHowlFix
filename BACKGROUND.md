@@ -63,9 +63,18 @@ The first line confirms the fix is active. The second shows a bad increment bein
 
 ## It is not only wolves
 
-The broken timer lives in the AI code shared by all predators, so bears, moose and cougars were
-affected too. They do not howl, so the symptom went unnoticed — it showed up instead as an animal
-repeatedly starting and abandoning a chase.
+The broken timer lives in the shared AI code, and it is reached by any animal that enters the
+stalking state — there is a single stalking routine in the game, with no per-species version.
+
+**Bears are affected**, confirmed by measurement. They do not howl, so the symptom went unnoticed:
+it shows up as a bear repeatedly starting and abandoning a chase, or losing interest the instant
+it notices you.
+
+**Timberwolves are not affected.** They run a separate pack AI — hide-and-seek and pack-joining —
+and never enter the stalking state at all, so they never reach the broken code.
+
+Moose and cougars share the same base AI, so they are fixed too *if* they stalk, but that was not
+verified. Prey animals never stalk and are unaffected either way.
 
 ## Will animals behave differently?
 
