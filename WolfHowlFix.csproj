@@ -8,8 +8,8 @@
     <AssemblyName>WolfHowlFix</AssemblyName>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <FileVersion>2.0.1.0</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
     <DebugType>none</DebugType>
     <!-- Il2Cpp interop proxies trip a lot of these; they are not actionable here. -->

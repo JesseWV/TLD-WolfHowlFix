@@ -3,7 +3,7 @@ using System.Linq;
 using MelonLoader;
 using WolfHowlFix;
 
-[assembly: MelonInfo(typeof(Core), "WolfHowlFix", "2.0.0", "Lycanthor")]
+[assembly: MelonInfo(typeof(Core), "WolfHowlFix", "2.0.1", "Lycanthor")]
 [assembly: MelonGame("Hinterland", "TheLongDark")]
 [assembly: MelonOptionalDependencies("ModSettings")]
 

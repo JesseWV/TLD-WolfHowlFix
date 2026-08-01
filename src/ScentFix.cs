@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using Il2Cpp;
 using UnityEngine;
@@ -51,8 +52,32 @@ internal static class Patch_UpdateScent
     /// </summary>
     private const float MaxPlausibleTick = 1f;
 
+    /// <summary>
+    /// A gap this long between calls means the animal stopped stalking and has started a NEW
+    /// pursuit, so the timer must start from zero.
+    ///
+    /// This is needed because the game never resets it. EnterStalking and ExitStalking contain
+    /// no reference to the field at all — the only reset is UpdateScent's own in-range branch,
+    /// which requires the animal to get back INSIDE its break range while stalking. An animal
+    /// that has been too far for 30 s and then wanders off keeps a hot timer forever, so every
+    /// later stalk dies on its first tick. That is a second, independent defect, and it is why
+    /// bears are seen looping in vanilla too.
+    ///
+    /// EnterStalking would be the natural place to hook, but it is inlined and has zero call
+    /// sites, so Harmony cannot bind it. UpdateScent is only ever called from ProcessStalking,
+    /// once per frame while stalking, so a gap in calls is an equally reliable signal that a
+    /// pursuit ended — and it needs no second patch.
+    /// </summary>
+    private const float NewPursuitGapSeconds = 0.5f;
+
+    private static readonly Dictionary<int, float> LastCall = new();
+    private static float _nextPrune;
+
     /// <summary>Corrections applied, so the diagnostics can prove the patch actually bound.</summary>
     internal static int Corrections;
+
+    /// <summary>Pursuits started fresh because the previous one had ended.</summary>
+    internal static int Resets;
 
     private static void Prefix(BaseAi __instance, out float __state)
     {
@@ -65,6 +90,29 @@ internal static class Patch_UpdateScent
 
         try
         {
+            int id = __instance.GetInstanceID();
+            float t = Time.time;
+
+            // New pursuit? Then whatever the timer holds is left over from a previous one.
+            bool fresh = !LastCall.TryGetValue(id, out float last) || t - last > NewPursuitGapSeconds;
+            LastCall[id] = t;
+
+            if (t >= _nextPrune)
+            {
+                _nextPrune = t + 60f;
+                PruneStale(t);
+            }
+
+            if (fresh && __state > 0f)
+            {
+                __instance.m_LostScentTimeSeconds = Time.deltaTime;
+                Resets++;
+                if (Config.Verbose && Resets <= 5)
+                    Core.Log.Msg($"new pursuit: carried-over timer {__state:0.0}s discarded" +
+                                 (Resets == 5 ? "  [further resets not logged]" : ""));
+                return;
+            }
+
             float now = __instance.m_LostScentTimeSeconds;
             float jump = now - __state;
             if (jump <= MaxPlausibleTick) return;   // ordinary accumulation, leave it alone
@@ -81,5 +129,14 @@ internal static class Patch_UpdateScent
                              (Corrections == 5 ? "  [further corrections not logged]" : ""));
         }
         catch { }
+    }
+
+    /// <summary>Drop bookkeeping for animals we have not seen stalking in a while.</summary>
+    private static void PruneStale(float now)
+    {
+        var dead = new List<int>();
+        foreach (var kv in LastCall)
+            if (now - kv.Value > 300f) dead.Add(kv.Key);
+        for (int i = 0; i < dead.Count; i++) LastCall.Remove(dead[i]);
     }
 }

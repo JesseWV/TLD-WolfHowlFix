@@ -28,11 +28,15 @@ Nothing is written to your save.
 | -------------- | ------- | -------------------------------------------- |
 | **Enable fix** | on      | Turn off to restore the unpatched behaviour. |
 
-## Wolves behave as intended
+## Animals behave as intended
 
-Previously a wolf that noticed you from too far away forgot about you instantly — that was the bug. Now it stays interested for the full 30 seconds the game intends, then gives up once.
+Previously an animal that noticed you from too far away forgot about you instantly — that was the bug. Now it stays interested for the full 30 seconds the game intends, then gives up once.
 
-Wolves are no more aggressive, no faster, and no better at finding you. Nothing about their senses, ranges or behaviour is retuned; only the broken timer is repaired.
+The broken timer is shared by all predators, so **bears, moose and cougars are fixed too**. They do not howl, so it showed up as an animal repeatedly starting and abandoning a chase rather than as a stuttering howl.
+
+⚠️ **Bears change the most.** A bear that used to lose interest instantly will now pursue you for the full 30 seconds. That is the intended behaviour, but it is a noticeable difference.
+
+Nothing is more aggressive, faster, or better at finding you. No senses, ranges or behaviour are retuned; only the broken timer is repaired.
 
 ## Works with other mods
 

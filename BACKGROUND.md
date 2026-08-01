@@ -18,11 +18,25 @@ Measured on an unmodified wolf during ordinary play, that timer had reached **10
 
 Aurora wolves can see further (105 m) than the distance at which they give up pursuit (100 m). That small gap means they routinely acquire you from just outside their pursuit range, which is exactly the condition that triggers it. Other wolves reach that state less often, but nothing about the defect is specific to them — any wolf stalking from too far away hits it, including one that can't reach you because a ravine or shoreline is in the way.
 
+## A second problem: the timer is never reset
+
+The game never clears that timer when an animal starts a new pursuit — `EnterStalking` and
+`ExitStalking` do not touch it at all. The only reset happens when the animal gets back *inside*
+its pursuit range.
+
+So an animal that has been too far for 30 seconds and then wanders off keeps a hot timer
+indefinitely, and every stalk it begins afterwards dies on its first tick. This is why bears are
+sometimes seen repeatedly starting and abandoning a chase in the unmodded game.
+
 ## What the mod does
 
-It corrects the timer.
+It corrects the timer, and clears stale ones.
 
 The mod hooks the function that maintains it and checks how much was added. A real frame adds hundredths of a second; the bug adds hundreds. When an impossible jump appears, the mod replaces it with the correct elapsed time and lets the game continue.
+
+It also detects when a new pursuit begins — the timer is only updated while an animal is
+actively stalking, so a gap means the previous pursuit ended — and starts that pursuit from zero
+rather than inheriting the last one's total.
 
 That is the entire fix. Nothing is retuned:
 
@@ -41,11 +55,25 @@ Enable verbose logging (see the README) and watch `MelonLoader/Latest.log`:
 ```
 [WolfHowlFix] ready (enabled=True); patched BaseAi.UpdateScent
 [WolfHowlFix] scent timer repaired: +23.5 -> +0.017 (now 0.02s of 30s)
+[WolfHowlFix] new pursuit: carried-over timer 30.6s discarded
 [WolfHowlFix] id=-348410 howl END CLEAN finalNt=0.98 wallClock=5.7s
 ```
 
-The first line confirms the fix is active. The second shows a bad increment being corrected in flight. The third is a howl playing its full 5.7-second clip to completion — `END BUGGED` would mean it restarted.
+The first line confirms the fix is active. The second shows a bad increment being corrected in flight. The third shows a stale timer discarded as a new pursuit begins. The fourth is a howl playing its full 5.7-second clip to completion — `END BUGGED` would mean it restarted.
 
-## Will wolves behave differently?
+## It is not only wolves
 
-Slightly, and in the direction the game intended. Previously a wolf that spotted you from just beyond its pursuit range gave up immediately; now it stays interested for the full 30 seconds before letting go. Wolves are no more aggressive, no faster, and no better at finding you — they simply stop forgetting about you instantly.
+The broken timer lives in the AI code shared by all predators, so bears, moose and cougars were
+affected too. They do not howl, so the symptom went unnoticed — it showed up instead as an animal
+repeatedly starting and abandoning a chase.
+
+## Will animals behave differently?
+
+Yes, in the direction the game intended. Previously an animal that noticed you from too far away
+gave up immediately; now it stays interested for the full 30 seconds before letting go.
+
+**Bears change the most.** A bear that used to lose interest instantly will now pursue for the
+full 30 seconds, which is a noticeable difference if you are used to the broken behaviour.
+
+Nothing is more aggressive, faster, or better at finding you. Animals simply stop forgetting
+about you instantly.
