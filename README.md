@@ -1,5 +1,14 @@
 # Wolf Howl Fix
 
+<!-- modindex
+status:   shipped
+version:  2.0.1
+released: 2.0.1
+summary:  Repairs the broken give-up-the-chase timer that makes a wolf loop and
+          stutter its howl endlessly instead of finishing it, most noticeable on
+          aurora nights. Nothing is retuned.
+-->
+
 Fixes the wolf howl loop bug. Under certain conditions, most noticeable on aurora nights, a wolf loops and stutters its howl endlessly instead of finishing it.
 
 The cause is a broken timer in the game's "give up the chase" logic. This mod repairs it — nothing is retuned.
