@@ -13,7 +13,7 @@ Fixes the wolf howl loop bug. Under certain conditions, most noticeable on auror
 
 The cause is a broken timer in the game's "give up the chase" logic. This mod repairs it — nothing is retuned.
 
-![A wolf's howl restarting over and over instead of finishing](BuggedHowl.gif)
+![A wolf's howl restarting over and over instead of finishing](Release.gif)
 
 ## Requirements
 
